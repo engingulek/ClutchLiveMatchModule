@@ -15,62 +15,56 @@ struct CardInfo: View {
                 .fontWeight(.bold)
                 .foregroundStyle(.gray)
             
-            
             VStack {
-                
-                HStack{
-                    Image(.yellowCard)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width:30,height: 30)
-                    Text("Yellow Card")
-                        .font(.callout)
-                        .fontWeight(.semibold)
-                    Spacer()
-                    Image(systemName: "circle.fill")
-                                  .resizable()
-                                  .scaledToFit()
-                                  .frame(width: 30, height: 30)
-                                  .clipShape(Circle())
-                                  .foregroundColor(.red)
-                    
-                }.padding(.horizontal)
-                    .padding(.vertical,5)
-                
+                title
                 Divider()
-                
-                VStack {
-                    HStack {
-                        VStack(alignment:.leading) {
-                            Text("Player Name")
-                                .font(.callout)
-                                .fontWeight(.semibold)
-                            Text("AMF #8")
-                                .font(.callout)
-                        }
-                        Spacer()
-                        Image(systemName: "circle.fill")
-                                      .resizable()
-                                      .scaledToFit()
-                                      .frame(width: 30, height: 30)
-                                      .clipShape(Circle())
-                                      .foregroundColor(.red)
-                        
-                    }
-                      
-                
-                }.padding(.horizontal)
-                    .padding(.vertical,5)
-                
-                
-                
-                
-                
+                playerInfo
             }  .background(Color.white)
                 .cornerRadius(20)
-            
-            
         }.padding()
+    }
+    
+    private var title : some View {
+        HStack{
+            Image(.yellowCard)
+                .resizable()
+                .scaledToFit()
+                .frame(width:30,height: 30)
+            Text("Yellow Card")
+                .font(.callout)
+                .fontWeight(.semibold)
+            Spacer()
+            Image(systemName: "circle.fill")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30, height: 30)
+                .clipShape(Circle())
+                .foregroundColor(.red)
+            
+        }.padding(.horizontal)
+            .padding(.vertical,5)
+    }
+    
+    private var playerInfo : some View {
+        VStack {
+            HStack {
+                VStack(alignment:.leading) {
+                    Text("Player Name")
+                        .font(.callout)
+                        .fontWeight(.semibold)
+                    Text("AMF #8")
+                        .font(.callout)
+                }
+                Spacer()
+                Image(systemName: "circle.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30, height: 30)
+                    .clipShape(Circle())
+                    .foregroundColor(.red)
+            }
+        }.padding(.horizontal)
+            .padding(.vertical,5)
     }
 }
 

@@ -18,9 +18,7 @@ struct LiveMatchView: View {
                         GoalView()
                         Substitution()
                         CardInfo()
-                        
-                      
-                       
+    
                     }
                     
                 }
