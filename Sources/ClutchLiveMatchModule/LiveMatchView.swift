@@ -7,22 +7,54 @@
 
 import SwiftUI
 
+
+
 struct LiveMatchView: View {
+    @State private var selectedTab: Tabs = .timeline
+    @Namespace private var animation
+     
+    
     var body: some View {
         VStack {
             LiveScoreView()
-            
+            TabView(selectedTab: $selectedTab)
             VStack {
-                ScrollView {
-                    VStack {
-                        GoalView()
-                        Substitution()
-                        CardInfo()
-    
-                    }
+                
+                
+                if selectedTab == .timeline {
                     
+                    ScrollView {
+                        VStack {
+                            GoalView()
+                            Substitution()
+                            CardInfo()
+                            
+                        }
+                        
+                    }
+                }else if selectedTab == .state{
+                    Text("State View")
+                }else if selectedTab == .standing{
+                    Text("Standing")
+                }else{
+                    ScrollView {
+                        VStack {
+                            GoalView()
+                            Substitution()
+                            CardInfo()
+                            
+                        }
+                        
+                    }
                 }
-            }.background(Color.gray.opacity(0.1))
+                
+               
+             }.background(Color.gray.opacity(0.1))
+
+           
+           
+            
+          
         }
     }
 }
@@ -30,3 +62,7 @@ struct LiveMatchView: View {
 #Preview {
     LiveMatchView()
 }
+
+
+
+/* */
