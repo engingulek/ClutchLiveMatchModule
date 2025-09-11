@@ -34,8 +34,7 @@ struct LiveMatchView: View {
                     }
                 }else if selectedTab == .state{
                     StateView()
-                }else if selectedTab == .standing{
-                    Text("Standing")
+                
                 }else{
                     
                 }

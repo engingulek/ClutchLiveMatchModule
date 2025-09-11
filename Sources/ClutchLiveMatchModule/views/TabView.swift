@@ -10,7 +10,7 @@ import SwiftUI
 enum Tabs:String,CaseIterable {
     case timeline = "Timeline"
     case state = "State"
-    case standing = "Standing"
+
 }
 
 
