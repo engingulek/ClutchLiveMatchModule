@@ -6,96 +6,61 @@
 //
 
 import SwiftUI
-
+import ClutchCoreKit
 struct LiveScoreView: View {
     var body: some View {
         HStack {
             VStack {
                 HStack {
-                    Image(systemName: "circle.fill")
-                                  .resizable()
-                                  .scaledToFit()
-                                  .frame(width: 50, height: 50)
-                                  .clipShape(Circle())
-                                  .foregroundColor(.red)
-                    Text("4")
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
-                   
+                    kfImageView(for: .big, url: "https://upload.wikimedia.org/wikipedia/tr/archive/2/2e/20241203235700%21Liverpool_FC_logo_2024.png")
+                    
+                    TextType(text: "4" ,fontType: .largeTitleSB)
                 }
-                Text("1.")
-                    .fontWeight(.semibold)
-                    .font(.title2)
+                
+                TextType(text: "1.", fontType: .titleTwoSB)
+                
                 HStack {
-                    Circle()
-                        .foregroundStyle(.red)
-                        .frame(width: 15,height: 25)
-                    Circle()
-                        .foregroundStyle(.gray)
-                        .frame(width: 15,height: 25)
-                    Circle()
-                        .foregroundStyle(.gray)
-                        .frame(width: 15,height: 25)
-                    Circle()
-                        .foregroundStyle(.green)
-                        .frame(width: 15,height: 25)
-                    Circle()
-                        .foregroundStyle(.green)
-                        .frame(width: 15,height: 25)
+                    matchResultView(for: .win)
+                    matchResultView(for: .draw)
+                    matchResultView(for: .lose)
+                    matchResultView(for: .lose)
+                    matchResultView(for: .win)
                 }
             }
-           
+            
             Spacer()
             
             Text("45'")
-                           .padding(.vertical, 5)
-                           .padding(.horizontal, 10)
-                           .fontWeight(.medium)
-                           .background(Color.green.opacity(0.2))
-                           .foregroundColor(.green)
-                           .clipShape(Capsule())
-                           .overlay(
-                               Capsule()
-                                   .stroke(Color.green, lineWidth: 2)
-                           )
+                .padding(.vertical, 5)
+                .padding(.horizontal, 10)
+                .background(Color.green.opacity(0.2))
+                .foregroundColor(.green)
+                .clipShape(Capsule())
+                .overlay(
+                    Capsule()
+                        .stroke(Color.green, lineWidth: 2)
+                )
+            
             Spacer()
             
             VStack {
+                
                 HStack {
-                    Image(systemName: "circle.fill")
-                                  .resizable()
-                                  .scaledToFit()
-                                  .frame(width: 50, height: 50)
-                                  .clipShape(Circle())
-                                  .foregroundColor(.red)
-                    Text("2")
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.gray)
-                   
+                    TextType(text: "2", color: .gray,fontType: .largeTitleSB)
+                    kfImageView(for: .big, url: "https://upload.wikimedia.org/wikipedia/tr/f/f6/Manchester_City.png")
                 }
-                Text("2.")
-                    .fontWeight(.semibold)
-                    .font(.title2)
+                
+                TextType(text: "2.", fontType: .titleTwoSB)
+                
                 HStack {
-                    Circle()
-                        .foregroundStyle(.red)
-                        .frame(width: 15,height: 25)
-                    Circle()
-                        .foregroundStyle(.gray)
-                        .frame(width: 15,height: 25)
-                    Circle()
-                        .foregroundStyle(.gray)
-                        .frame(width: 15,height: 25)
-                    Circle()
-                        .foregroundStyle(.green)
-                        .frame(width: 15,height: 25)
-                    Circle()
-                        .foregroundStyle(.green)
-                        .frame(width: 15,height: 25)
+                    matchResultView(for: .win)
+                    matchResultView(for: .draw)
+                    matchResultView(for: .lose)
+                    matchResultView(for: .lose)
+                    matchResultView(for: .win)
+                    
                 }
             }
-        
         }.padding(.horizontal)
     }
 }

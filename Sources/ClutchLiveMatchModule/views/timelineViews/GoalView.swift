@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
-
+import ClutchCoreKit
 struct GoalView: View {
+    let textState : TextState
     var body: some View {
         HStack {
-            Text("mn'")
-                .font(.title2)
-                .fontWeight(.bold)
-                .foregroundStyle(.gray)
             
+            TextType(text: "mn'", color: .gray, fontType: .titleTwoBold)
+      
             VStack {
                 goalScore
                 goalInfo
@@ -28,49 +27,33 @@ struct GoalView: View {
     private var goalScore : some View {
             VStack {
                 HStack {
-                    Image(systemName: "soccerball.inverse")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.white)
+                    systemImageView(for: .mid, systemImage: "soccerball.inverse", color: .white)
                     
-                    Text("GOOOLL!!!")
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
+                    TextType(text: textState.gol, color: .white,fontType: .calloutSB)
+                   
                     Spacer()
                     
                     HStack {
                         HStack {
-                            Image(systemName: "circle.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 30, height: 30)
-                                .clipShape(Circle())
-                                .foregroundColor(.white)
-                            Text("4")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.white)
+                            kfImageView(for: .mid, url: "https://upload.wikimedia.org/wikipedia/tr/archive/2/2e/20241203235700%21Liverpool_FC_logo_2024.png")
+                              
+                            TextType(text: "4", color: .white,fontType: .titleTwoSB)
+                           
                         }
     
                         Text("-")
+                            .foregroundStyle(.white)
                         
                         HStack {
-                            Text("2")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.gray)
-                            Image(systemName: "circle.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 30, height: 30)
-                                .clipShape(Circle())
-                                .foregroundColor(.white)
+                            TextType(text: "2", color: .white,fontType: .titleTwoSB)
+                            kfImageView(for: .mid, url: "https://upload.wikimedia.org/wikipedia/tr/archive/2/2e/20241203235700%21Liverpool_FC_logo_2024.png")
+                              
+                           
                         }
                     }
                 }.padding()
             }
-            .background(Color.red)
+            .background(Color.indigo)
         
     }
     
@@ -79,17 +62,14 @@ struct GoalView: View {
         VStack {
             HStack {
                 VStack(alignment:.leading) {
-                    Text("Player Name")
-                        .fontWeight(.semibold)
+                    TextType(text: "Player Name", fontType: .calloutSB)
+                   
                     Text("AMF #8")
                 }
                 Spacer()
-                Image(systemName: "circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 30, height: 30)
-                    .clipShape(Circle())
-                    .foregroundColor(.red)
+                
+                kfImageView(for: .mid, url: "https://img.a.transfermarkt.technology/portrait/big/148455-1727337594.jpg?lm=1")
+                
             }.padding(.horizontal)
                 .padding(.vertical,5)
             
@@ -97,8 +77,7 @@ struct GoalView: View {
             
             HStack{
                 Text("Goal Assist")
-                Text("Player Name")
-                    .fontWeight(.semibold)
+                TextType(text: "Player Name", fontType: .calloutSB)
                 Spacer()
             }
             .padding(.horizontal)
@@ -107,6 +86,3 @@ struct GoalView: View {
     }
 }
 
-#Preview {
-    GoalView()
-}
