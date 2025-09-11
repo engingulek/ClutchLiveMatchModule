@@ -26,8 +26,6 @@ struct StateView: View {
     var body: some View {
         ScrollView {
             MatchOverviewView(
-                leftTeamName: "Anatolia FC",
-                rightTeamName: "Bosphorus United",
                 leftColor: Color(red: 0.11, green: 0.53, blue: 0.96),
                 rightColor: Color(red: 0.96, green: 0.33, blue: 0.35),
                 stats: exampleStats

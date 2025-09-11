@@ -13,11 +13,24 @@ let package = Package(
             name: "ClutchLiveMatchModule",
             targets: ["ClutchLiveMatchModule"]),
     ],
+    dependencies: [
+         
+         .package(url: "https://github.com/engingulek/ClutchCoreKit",branch: "master"),
+         .package(url: "https://github.com/onevcat/Kingfisher.git", from: "8.5.0")
+       
+     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "ClutchLiveMatchModule"),
+            name: "ClutchLiveMatchModule",
+            dependencies: [
+                .product(name: "ClutchCoreKit", package: "ClutchCoreKit"),
+                "Kingfisher"
+               
+            ]
+        
+        ),
         .testTarget(
             name: "ClutchLiveMatchModuleTests",
             dependencies: ["ClutchLiveMatchModule"]

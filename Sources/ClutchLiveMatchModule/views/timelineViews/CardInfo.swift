@@ -6,14 +6,12 @@
 //
 
 import SwiftUI
-
+import ClutchCoreKit
 struct CardInfo: View {
+    let textState : TextState
     var body: some View {
         HStack {
-            Text("mn'")
-                .font(.title2)
-                .fontWeight(.bold)
-                .foregroundStyle(.gray)
+            TextType(text: "mn'", color: .gray, fontType: .titleTwoBold)
             
             VStack {
                 title
@@ -29,17 +27,13 @@ struct CardInfo: View {
             Image(.yellowCard)
                 .resizable()
                 .scaledToFit()
-                .frame(width:30,height: 30)
-            Text("Yellow Card")
-                .font(.callout)
-                .fontWeight(.semibold)
+                .frame(width: 30,height: 30)
+             
+            TextType(text: textState.yellowCard, fontType: .calloutSB)
+         
             Spacer()
-            Image(systemName: "circle.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 30, height: 30)
-                .clipShape(Circle())
-                .foregroundColor(.red)
+            kfImageView(for: .mid, url: "https://upload.wikimedia.org/wikipedia/tr/archive/2/2e/20241203235700%21Liverpool_FC_logo_2024.png")
+            
             
         }.padding(.horizontal)
             .padding(.vertical,5)
@@ -49,25 +43,16 @@ struct CardInfo: View {
         VStack {
             HStack {
                 VStack(alignment:.leading) {
-                    Text("Player Name")
-                        .font(.callout)
-                        .fontWeight(.semibold)
+                    TextType(text: "Player Name", fontType: .calloutSB)
+                   
                     Text("AMF #8")
-                        .font(.callout)
+                       
                 }
                 Spacer()
-                Image(systemName: "circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 30, height: 30)
-                    .clipShape(Circle())
-                    .foregroundColor(.red)
+                kfImageView(for: .mid, url: "https://img.a.transfermarkt.technology/portrait/big/148455-1727337594.jpg?lm=1")
             }
         }.padding(.horizontal)
             .padding(.vertical,5)
     }
 }
 
-#Preview {
-    CardInfo()
-}

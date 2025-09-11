@@ -9,51 +9,27 @@ import SwiftUI
 
 
 
-struct LiveMatchView: View {
-    @State private var selectedTab: Tabs = .timeline
-    @Namespace private var animation
-     
+struct LiveMatchView<VM:LiveMatchViewModelProtocol>: View {
+    @StateObject var viewModel : VM
     
+    @Namespace private var animation
     var body: some View {
         VStack {
             LiveScoreView()
-            TabView(selectedTab: $selectedTab)
-            VStack {
-                
-                
-                if selectedTab == .timeline {
-                    
-                    ScrollView {
-                        VStack {
-                            GoalView()
-                            Substitution()
-                            CardInfo()
-                            
-                        }
-                        
-                    }
-                }else if selectedTab == .state{
-                    StateView()
-                
-                }else{
-                    
-                }
-                
-               
-             }.background(Color.gray.opacity(0.1))
-
-           
-           
+            LiveMatchTabView(
+                selectedTab: viewModel.selectedTab,
+                onTabSelected: viewModel.onTappedTab
+            )
             
-          
+            VStack {
+               
+                contentView(for: viewModel.selectedTab, viewModel: viewModel)
+                
+             }.background(Color.gray.opacity(0.1))
         }
     }
 }
 
 #Preview {
-    LiveMatchView()
+    LiveMatchView(viewModel: LiveMatchViewModel())
 }
-
-
-
-/* */

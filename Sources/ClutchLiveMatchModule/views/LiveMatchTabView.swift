@@ -6,23 +6,19 @@
 //
 
 import SwiftUI
-
-enum Tabs:String,CaseIterable {
-    case timeline = "Timeline"
-    case state = "State"
-
-}
+import ClutchCoreKit
 
 
-struct TabView: View {
-    @Binding  var selectedTab: Tabs
+struct LiveMatchTabView: View {
+    let  selectedTab: Tabs
+    let onTabSelected: (Tabs) -> Void
+    
     @Namespace private var animation
+    
     var body: some View {
         HStack(spacing: 16) {
             ForEach(Tabs.allCases, id: \.self) { tab in
-                Text(tab.rawValue)
-                          .fontWeight(.semibold)
-                          .foregroundColor(selectedTab == tab ? .white : .gray)
+                TextType(text: tab.title, color: selectedTab == tab ? .white : .gray, fontType: .calloutSB)
                           .padding(.vertical, 8)
                           .padding(.horizontal, 16)
                           .background(
@@ -39,7 +35,7 @@ struct TabView: View {
                           )
                           .onTapGesture {
                               withAnimation(.spring()) {
-                                  selectedTab = tab
+                                 onTabSelected(tab)
                               }
                           }
                   }
