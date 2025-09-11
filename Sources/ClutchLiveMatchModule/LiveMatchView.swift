@@ -33,19 +33,11 @@ struct LiveMatchView: View {
                         
                     }
                 }else if selectedTab == .state{
-                    Text("State View")
+                    StateView()
                 }else if selectedTab == .standing{
                     Text("Standing")
                 }else{
-                    ScrollView {
-                        VStack {
-                            GoalView()
-                            Substitution()
-                            CardInfo()
-                            
-                        }
-                        
-                    }
+                    
                 }
                 
                
